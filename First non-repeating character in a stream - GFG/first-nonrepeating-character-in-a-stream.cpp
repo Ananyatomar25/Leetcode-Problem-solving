@@ -6,35 +6,35 @@ using namespace std;
 class Solution {
 	public:
 		string FirstNonRepeating(string A){
-		    string output;
+		    string ans;
 	    
-	    vector<int> vect(26, 0);
+	    vector<int> v(26, 0);
 	    
-	    queue<char> mq;
+	    queue<char> q;
 	    
 	    for(auto x : A)
 	    {
-	        int idx = x - 'a';
+	        int i = x - 'a';
 
-	        if(vect[idx] == 1)
-	            vect[idx] = 2;
+	        if(v[i] == 1)
+	            v[i] = 2;
 	            
-	        else if(vect[idx] == 0)
+	        else if(v[i] == 0)
 	        {
-	            vect[idx] = 1;
-	            mq.push(x);
+	            v[i] = 1;
+	            q.push(x);
 	        }
 	        
-	        while(!mq.empty() and vect[mq.front() - 'a'] == 2)
-	            mq.pop();
+	        while(!q.empty() && v[q.front() - 'a'] == 2)
+	            q.pop();
 	            
-	        if(mq.empty())
-	            output.push_back('#');
+	        if(q.empty())
+	            ans.push_back('#');
 	        else
-	            output.push_back(mq.front());
+	            ans.push_back(q.front());
 	    }
 	    
-	    return output;
+	    return ans;
 		}
 
 };
