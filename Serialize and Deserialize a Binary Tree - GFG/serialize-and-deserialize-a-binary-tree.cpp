@@ -113,17 +113,25 @@ class Solution
     }
     
     //Function to deserialize a list and construct the tree.
+    int i=0;
     Node * deSerialize(vector<int> &A)
     {
-       struct Node*newroot = new Node(-1);
-       Node* temp = newroot;
-       int n = A.size();
-       for(int i=0;i<n;i++)
-       {
-           temp->right = new Node(A[i]);
-           temp = temp->right;
-       }
-       return newroot->right;
+       if(A.size() == 0){
+            return NULL;
+        }
+        if(A[i] == -1){
+            i++;
+            return NULL;
+        }
+        if(i==A.size()) return NULL;
+        
+        Node *root = new Node(A[i++]);
+        root->right = deSerialize(A);
+        root->left = deSerialize(A);
+        
+        
+        
+        return root;
     }
 
 };
