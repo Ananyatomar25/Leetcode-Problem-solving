@@ -2,16 +2,11 @@ class Solution {
 public:
     char findTheDifference(string s, string t) {
         if(s.length() ==0) return t[0];
-        sort(s.begin(),s.end());
-        sort(t.begin(),t.end());
+        char v = 0;
         
-        int i=0;
+        for(auto it: s) v = v^it;
+        for(auto it: t) v = v^it;
         
-        while(i<s.length()){
-            if(s[i]!=t[i]) return t[i];
-            i++;
-        }
-        
-        return t[t.length()-1];
+        return v;
     }
 };
