@@ -1,4 +1,6 @@
 class Solution {
+    // consider TUF article ---> 1. insertion sort instead of sort inbuilt
+    // 2. GAP method
 public:
     void merge(vector<int>& nums1, int m, vector<int>& nums2, int n) {
         
