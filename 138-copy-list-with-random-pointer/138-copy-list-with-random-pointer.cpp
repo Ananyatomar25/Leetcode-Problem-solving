@@ -57,7 +57,7 @@ public:
             iter->next = front;
               
             copy = copy -> next; 
-            iter = front;
+            iter = iter->next;
           }
 
           return dummy->next;        
