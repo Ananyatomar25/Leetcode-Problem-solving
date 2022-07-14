@@ -4,17 +4,21 @@ public:
         int m = grid.size();
         int n = grid[0].size();
         int min =0, tot =0, count =0;
+        //queue is mandatory for BFS
         queue<pair<int,int>> rotten;
         int dx[4] ={0,0,1,-1};
         int dy[4] ={1,-1,0,0};
         
         for(int i=0;i<m;i++){
             for(int j=0;j<n;j++){
+                //counting total oranges
                 if(grid[i][j]!=0) tot++;
+                //pushing rotten ones into the queue
                 if(grid[i][j]==2) rotten.push({i,j});
             }
         }
         
+        //BFS starts
         while(!rotten.empty()){
             int k = rotten.size();
             count+=k;
@@ -34,7 +38,7 @@ public:
             if(!rotten.empty()) min++;
         }
         
-        return tot==count?min:-1;
+        return tot == count?min:-1;
         
     }
 };
