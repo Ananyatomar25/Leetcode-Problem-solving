@@ -15,8 +15,12 @@ public:
         
         if(root->val == val || root == NULL) return root;
         
-        while(root != NULL && root->val != val){
-            root = root->val > val ? root->left : root->right;
+        while(root != NULL){
+            
+            if(root->val == val) return root;
+            else if(root->val > val) root = root->left;
+            else root = root->right;
+            
         }
         
         return root;
