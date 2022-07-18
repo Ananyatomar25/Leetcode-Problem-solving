@@ -23,6 +23,7 @@ public:
         cnt++;
         if(cnt == k){
             ans = root->val;
+            return;
         }
         inorder(root->right,k);
         
