@@ -12,18 +12,19 @@
 class Solution {
 public:
     
-    vector<int> in;
     
-    void inorder(TreeNode* node){
+    
+    void inorder(TreeNode* node, vector<int> &in){
         
         if(node == NULL) return;
-        inorder(node->left);
+        inorder(node->left,in);
         in.push_back(node->val);
-        inorder(node->right);
+        inorder(node->right,in);
     }
     
     bool findTarget(TreeNode* root, int k) {
-        inorder(root);
+        vector<int> in;
+        inorder(root, in);
         int i = 0;
         int j = in.size()-1;
         
