@@ -4,7 +4,9 @@ public:
         
        if (s.length() != t.length()) return false;
         int n = s.length();
+        //constant space
         int counts[26] = {0};
+        //O(n) time
         for (int i = 0; i < n; i++) { 
             counts[s[i] - 'a']++;
             counts[t[i] - 'a']--;
